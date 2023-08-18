@@ -1,4 +1,5 @@
 import './Sidebar.css';
+import SidebarChat from './SidebarChat.js';
 import { Avatar, Icon, IconButton } from '@mui/material';
 import DonutLarge from '@mui/icons-material/DonutLarge';
 import Chat from '@mui/icons-material/Chat';
@@ -33,7 +34,11 @@ function Sidebar() {
       </div>
 
       <div className='sidebar__chats'>
-
+        <SidebarChat />
+        <SidebarChat />
+        <SidebarChat />
+        <SidebarChat />
+        <SidebarChat />
       </div>
     </div>
   );
