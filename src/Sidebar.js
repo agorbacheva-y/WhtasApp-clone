@@ -8,7 +8,6 @@ import SearchOutlined from '@mui/icons-material/SearchOutlined'
 function Sidebar() {
   return (
     <div className='sidebar'>
-      <h1>sidebar</h1>
       <div className='sidebar__header'>
         <Avatar />
         <div className='sidebar__headerRight'>
@@ -27,8 +26,10 @@ function Sidebar() {
       </div>
 
       <div className='sidebar__search'>
-        <SearchOutlined />
-        <input type='text' placeholder='Search or start new chat' />
+        <div className='sidebar__searchContainer'>
+          <SearchOutlined />
+          <input type='text' placeholder='Search or start new chat' />
+        </div>
       </div>
 
       <div className='sidebar__chats'>
