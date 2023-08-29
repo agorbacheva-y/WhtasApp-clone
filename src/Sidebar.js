@@ -16,14 +16,20 @@ function Sidebar() {
   //go to rooms collection in firebase, take snapshot of latest screen
   //update rooms with data in rooms
   useEffect(() => {
-    db.collection('rooms').onSnapshot(snapshot => (
+    const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
       setRooms(snapshot.docs.map(doc =>
         ({
           id: doc.id,
           data: doc.data(),
         })
       ))
-    ))
+    ));
+    
+    // unsubscribe is a cleanup function. whenever component unmounts, detach realtime
+    // listener after using it
+    return () => {
+      unsubscribe();
+    };
   },[]);
 
   return (

@@ -20,3 +20,5 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 export { auth, provider };
 export default db;
+
+// firebase is google service. can handle traffic so scalable and optimal
