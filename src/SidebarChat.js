@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import './SidebarChat.css';
 import { Avatar } from '@mui/material';
 import db from "./firebase";
@@ -23,14 +24,16 @@ function SidebarChat({ id, name, addNewChat}) {
   };
 
   return !addNewChat ? (
-    // if it's not addNewChat show this:
-    <div className='sidebarChat'>
-      <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
-      <div className='sidebarChat__info'>
-        <h2>{name}</h2>
-        <p>Last message</p>
+    <Link to={`/rooms/:${id}`} >
+      {/* // if it's not addNewChat show this: */}
+      <div className='sidebarChat'>
+        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <div className='sidebarChat__info'>
+          <h2>{name}</h2>
+          <p>Last message</p>
+        </div>
       </div>
-    </div>
+    </Link>
   ) : (
     // if it's addNewChat show this:
     <div  className='sidebarChat'

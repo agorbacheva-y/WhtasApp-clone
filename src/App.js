@@ -9,10 +9,14 @@ function App() {
       <div className="app__body">
       
       <Router>
+        <Sidebar />
+
         <Routes>
-          <Sidebar />
-          <Chat />
+          <Route path="/rooms/:roomId" element={<Chat />} />
+          <Route path="/app" element={<Chat />} />
+          <Route path="/" element={<h1>Home Screen</h1>} />
         </Routes>
+        
       </Router>
         
       </div>

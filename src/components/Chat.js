@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Chat.css";
 import { Avatar, IconButton } from '@mui/material';
 import SearchOutlined from '@mui/icons-material/SearchOffOutlined';
@@ -10,6 +11,9 @@ import MicIcon from "@mui/icons-material/Mic";
 function Chat() {
   const [ seed, setSeed ] = useState("");
   const [ input, setInput ] = useState("");
+  
+  // grab room id for router using hook
+  const { roomId } = useParams();
 
   // generate random avator for each chat room
   useEffect(() => {
