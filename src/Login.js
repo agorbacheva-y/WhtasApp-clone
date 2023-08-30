@@ -2,6 +2,8 @@ import './Login.css';
 import Button from '@mui/material/Button';
 
 function Login() {
+  const signIn = () => {};
+  
   return (
     <div className='login'>
       <div className='login__container'>

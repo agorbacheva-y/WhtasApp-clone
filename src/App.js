@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Chat from "./Chat";
 import Sidebar from "./Sidebar";
+import Login from "./Login";
 
 function App() {
   const [ user, setUser ] = useState(null);
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="app">
       {!user ? (
-        <h1>Login</h1>
+        <Login />
       ) : (
       <div className="app__body">
       
