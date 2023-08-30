@@ -7,13 +7,27 @@ import AttachFile from "@mui/icons-material/AttachFile";
 import MoreVert from '@mui/icons-material/MoreVert';
 import InsertEmoticon from "@mui/icons-material/InsertEmoticon";
 import MicIcon from "@mui/icons-material/Mic";
+import db from "./firebase";
 
 function Chat() {
   const [ seed, setSeed ] = useState("");
   const [ input, setInput ] = useState("");
-  
+
   // grab room id for router using hook
   const { roomId } = useParams();
+
+  // keep track of room name
+  const [ roomName, setRoomName ] = useState("");
+
+  // when room id changes, set room name to that room's name
+  useEffect(() => {
+    if (roomId) {
+      db.collection('rooms').doc(roomId).
+      onSnapshot(snapshot => (
+        setRoomName(snapshot.data().name)
+      ))
+    }
+  },[roomId])
 
   // generate random avator for each chat room
   useEffect(() => {
