@@ -22,18 +22,17 @@ function Chat() {
   // when room id changes, set room name to that room's name
   useEffect(() => {
     if (roomId) {
-      db.collection('rooms')
+      db.collection("rooms")
       .doc(roomId)
-      .onSnapshot((snapshot) => (
-        setRoomName(snapshot.data().name)
-      ));
+      .onSnapshot((snapshot) => setRoomName(snapshot.data()));
+      // should add .name after data() but returning undefined...
     }
   },[roomId]);
 
   // generate random avator for each chat room
   useEffect(() => {
     setSeed(Math.floor(Math.random() *5000));
-  }, []);
+  }, [roomId]);
 
   const sendMessage = (e) => {
     e.preventDefault();

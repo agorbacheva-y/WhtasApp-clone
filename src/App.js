@@ -1,11 +1,17 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 import Chat from "./Chat";
 import Sidebar from "./Sidebar";
 
 function App() {
+  const [ user, setUser ] = useState(null);
+
   return (
     <div className="app">
+      {!user ? (
+        <h1>Login</h1>
+      ) : (
       <div className="app__body">
       
       <Router>
@@ -20,6 +26,7 @@ function App() {
       </Router>
         
       </div>
+      )}
     </div>
   );
 }
