@@ -5,6 +5,7 @@ import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 
 function Login() {
+  // first argument is state, second argument is dispatch
   const [{}, dispatch] = useStateValue();
 
   const signIn = () => {
